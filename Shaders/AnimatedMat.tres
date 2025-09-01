@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bs52f0loowc4"]
+
+[ext_resource type="Shader" uid="uid://c4mboh0mo0uef" path="res://Shaders/AnimatedMat.gdshader" id="1_1xko8"]
+[ext_resource type="Texture2D" uid="uid://s1gtij861p7s" path="res://images/c52bda7ab51142c23e3e3215f27eb21a-1316322355.jpg" id="2_xw4af"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1xko8")
+shader_parameter/size = 0.4
+shader_parameter/intensity = 0.7
+shader_parameter/frame_time = 0.17
+shader_parameter/light_direction = Vector3(-0.6, 0.75, 0)
+shader_parameter/hatch = ExtResource("2_xw4af")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/hatch_size = 6.0

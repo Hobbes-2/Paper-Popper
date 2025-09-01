@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba5es16rjwimd"]
+
+[ext_resource type="Script" uid="uid://dqvynvwe31uj1" path="res://Scripts/painting_frame.gd" id="1_yyyw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofu4s"]
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_timtu"]
+size = Vector3(2, 2, 2)
+
+[node name="PaintingFrame" type="Node3D"]
+script = ExtResource("1_yyyw1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.57361e-09, 0, 0.5, 0, 0.5, 0, -0.036, 0, -2.18557e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ofu4s")
+mesh = SubResource("BoxMesh_timtu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.36041e-09, 0, 0.05, 0, 0.55, 0, -0.054, 0, -2.18557e-09, -0.5, 0, 0.00375863)
+mesh = SubResource("BoxMesh_timtu")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.36041e-09, 0, 0.05, 0, 0.55, 0, -0.054, 0, -2.18557e-09, 0.5, 0, 0.00375863)
+mesh = SubResource("BoxMesh_timtu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.36041e-09, -0.55, -2.18557e-09, 0, -2.40413e-08, 0.05, -0.054, 2.40413e-08, 9.55343e-17, 0, -0.5, -0.00050658)
+mesh = SubResource("BoxMesh_timtu")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.36041e-09, -0.55, -2.18557e-09, 0, -2.40413e-08, 0.05, -0.054, 2.40413e-08, 9.55343e-17, 0, 0.5, 0.00292623)
+mesh = SubResource("BoxMesh_timtu")

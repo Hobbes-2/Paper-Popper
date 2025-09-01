@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://o4ubwqla1tuu"]
+
+[ext_resource type="Script" uid="uid://dcqceaaxjvqra" path="res://Scripts/block_1.gd" id="1_806gy"]
+[ext_resource type="Texture2D" uid="uid://bxiquea1ifklc" path="res://Paintings/BoyWithBox.jpg" id="2_ytqwo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ghyx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uldf3"]
+albedo_texture = ExtResource("2_ytqwo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_806gy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_806gy"]
+
+[node name="Block1" type="RigidBody3D"]
+script = ExtResource("1_806gy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2ghyx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_uldf3")
+mesh = SubResource("BoxMesh_806gy")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_806gy")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

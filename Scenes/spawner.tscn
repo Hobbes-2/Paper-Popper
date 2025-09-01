@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnyorfa1q8n38"]
+
+[ext_resource type="Script" uid="uid://3k8strkqw08f" path="res://Scripts/spawner.gd" id="1_2bop2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2bop2"]
+
+[node name="Spawner" type="Node3D"]
+script = ExtResource("1_2bop2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Despawn" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Despawn"]
+transform = Transform3D(8.32, 0, 0, 0, 7.995, 0, 0, 0, 1, 0, 0, 12)
+shape = SubResource("BoxShape3D_2bop2")
+disabled = true
+
+[node name="Reset" type="Area3D" parent="."]
+transform = Transform3D(0.24, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reset"]
+transform = Transform3D(8.32, 0, 0, 0, 7.995, 0, 0, 0, 1, 0, 0, -2)
+shape = SubResource("BoxShape3D_2bop2")
+disabled = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Despawn" to="." method="_on_despawn_area_entered"]
+[connection signal="area_entered" from="Reset" to="." method="_on_reset_area_entered"]
